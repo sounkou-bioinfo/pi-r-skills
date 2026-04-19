@@ -49,6 +49,11 @@ R CMD check *.tar.gz
 
 Guideline: update roxygen in `R/*.R`, then regenerate. Never hand-edit generated `NAMESPACE` or `.Rd` files.
 
+## Native-code naming convention
+
+- Prefix C functions that touch the R C API or are exported to `.Call` with `RC_`
+- Keep the convention consistent across C source, headers, registration, and R wrappers
+
 ## Typical package layout
 
 ```text

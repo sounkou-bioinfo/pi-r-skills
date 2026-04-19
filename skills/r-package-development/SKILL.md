@@ -283,6 +283,13 @@ Citation practice in `Authors@R`:
 - Prefer moving OS-specific includes, constants, shims, and macro-heavy logic into those files
 - This helps restrict `#ifdef` and macro usage to specific files and keeps the rest of the code easier to read, test, and review
 
+### src/ native API naming
+
+- For package C code, prefix functions that touch the R C API or are intended to be exposed through `.Call` with `RC_`
+- Use the `RC_` prefix to make R-facing/native-interface functions easy to identify during review, registration, and debugging
+- Keep lower-level helper functions on a separate naming scheme when they are not part of the R-facing boundary
+- Apply the convention consistently in declarations, definitions, registration tables, and R wrappers
+
 ### vignettes/
 
 - Use for workflows and package narratives
