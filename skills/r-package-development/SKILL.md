@@ -1,11 +1,11 @@
 ---
 name: r-package-development
-description: Guides creation, maintenance, checking, testing, documenting, and releasing R packages using project-native workflows such as Makefiles, tinytest, roxygen2, base R, and optional tools like usethis or pkgdown. Use when working on any R package or CRAN-style package workflow.
+description: Guides creation, maintenance, checking, testing, documenting, and releasing R packages using project-native workflows such as Makefiles, tinytest, roxygen2, base R, and optional tools like usethis, pkgdown, air, or jarl. Use when working on any R package or CRAN-style package workflow.
 ---
 
 # R Package Development
 
-Use this skill when creating or maintaining an R package, especially when the project has its own workflow via `Makefile`, `tinytest`, `roxygen2`, `R CMD build`, and `R CMD check`. Optional helpers like `usethis` and `pkgdown` can still be used when they match the project.
+Use this skill when creating or maintaining an R package, especially when the project has its own workflow via `Makefile`, `tinytest`, `roxygen2`, `R CMD build`, and `R CMD check`. Optional helpers like `usethis`, `pkgdown`, `air`, and `jarl` can still be used when they match the project.
 
 ## What this skill covers
 
@@ -19,6 +19,8 @@ Use this skill when creating or maintaining an R package, especially when the pr
 - Manage `NEWS.md` in reverse chronological order
 - Use a consistent vendored C/C++ code strategy
 - Build sites with `pkgdown` when configured
+- Format code with `air` when the project uses or wants it
+- Lint code with `jarl` when the project uses or wants it
 - Prepare for release or CRAN submission
 
 ## Working style
@@ -176,6 +178,15 @@ R CMD build .
 R CMD check *.tar.gz
 ```
 
+Optional formatting/linting steps when the project uses them:
+
+```bash
+air format R/ tests/ inst/tinytest/
+jarl check R/ tests/ inst/tinytest/
+# or
+jarl check R/ tests/ inst/tinytest/ --fix
+```
+
 When check output reports `NOTE`, `WARNING`, or `ERROR`, fix the underlying cause and rerun the relevant step.
 
 ### 6) Build package website
@@ -312,6 +323,8 @@ Citation practice in `Authors@R`:
 - If the project uses CI, align local checks with CI steps
 - Avoid introducing heavyweight dependencies unless justified
 - Do not switch a package from `tinytest` to `testthat` unless explicitly requested
+- Use `air` and `jarl` as optional complements to the package workflow, not substitutes for testing or `R CMD check`
+- If the repository already uses `styler`, `lintr`, or another formatter/linter, prefer the existing convention unless asked to migrate
 - Keep `NEWS.md` reverse chronological, with newest entries first
 - For vendored code, preserve provenance and a reproducible update path
 - When studying external code or package behavior, prefer a checked-out reference under `.sync/` when the project uses that convention
@@ -350,6 +363,7 @@ R -e 'roxygen2::roxygenize(load_code = "source")'
 ## References
 
 - [Workflow reference](references/workflow-reference.md)
+- [Formatting and linting](references/formatting-and-linting.md)
 - [Release checklist](references/release-checklist.md)
 - [Vendoring strategy](references/vendoring-strategy.md)
 - [Related S7 skill](../s7-development/SKILL.md)

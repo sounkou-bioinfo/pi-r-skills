@@ -1,6 +1,6 @@
 # pi-r-skills
 
-Pi skills for R package development.
+Pi skills for R package development, including project-native workflows plus optional fast formatting with `air` and linting with `jarl`.
 
 ## Install
 
@@ -11,7 +11,7 @@ pi install git:github.com/sounkou-bioinfo/pi-r-skills
 Pin a specific release:
 
 ```bash
-pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.2.0
+pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.3.0
 ```
 
 ## Included skills
@@ -81,7 +81,7 @@ pi update git:github.com/sounkou-bioinfo/pi-r-skills
 If you installed a pinned tag, move to the new release explicitly:
 
 ```bash
-pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.2.0
+pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.3.0
 ```
 
 ## Development

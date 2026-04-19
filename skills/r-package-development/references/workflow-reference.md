@@ -36,6 +36,16 @@ R CMD build .
 R CMD check *.tar.gz
 ```
 
+## Optional formatting and linting tools
+
+```bash
+air format R/ tests/ inst/tinytest/
+jarl check R/ tests/ inst/tinytest/
+jarl check R/ tests/ inst/tinytest/ --fix
+```
+
+Use these only when they fit the repository workflow. They complement, but do not replace, docs/tests/check steps.
+
 ## roxygen2 tags often used
 
 - `@export`
@@ -107,8 +117,12 @@ This is useful when you want an `llm.txt`-style snapshot of an R package for rev
 ## CI-friendly sequence
 
 ```bash
+air format R/ tests/ inst/tinytest/
+jarl check R/ tests/ inst/tinytest/
 make rd
 make dev-install
 make test
 make check
 ```
+
+If the repository does not use `air` or `jarl`, omit those steps rather than imposing them.
