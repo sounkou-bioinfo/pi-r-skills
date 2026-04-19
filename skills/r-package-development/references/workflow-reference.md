@@ -82,6 +82,22 @@ NULL
 
 Use this file for dynload-related roxygen tags and package-level imports, then regenerate `NAMESPACE`. 
 
+## External reference pattern
+
+When developing against existing codebases or upstream packages, a useful pattern is:
+
+- keep source references in a local `.sync/` directory when the project uses mirrored checkouts
+- for R packages, generate a single review artifact containing source, docs, and vignettes
+
+Example with `rdocdump`:
+
+```bash
+Rscript -e 'install.packages("rdocdump")'
+Rscript -e 'rdocdump::rdd_to_txt(pkg = "S7", file = "S7.llm.txt", force_fetch = TRUE, keep_files = "none")'
+```
+
+This is useful when you want an `llm.txt`-style snapshot of an R package for review, search, or prompting.
+
 ## NEWS.md guidance
 
 - Keep newest changes first

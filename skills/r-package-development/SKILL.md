@@ -314,6 +314,8 @@ Citation practice in `Authors@R`:
 - Do not switch a package from `tinytest` to `testthat` unless explicitly requested
 - Keep `NEWS.md` reverse chronological, with newest entries first
 - For vendored code, preserve provenance and a reproducible update path
+- When studying external code or package behavior, prefer a checked-out reference under `.sync/` when the project uses that convention
+- For R package references, consider generating a single `llm.txt`-style source/doc dump with `rdocdump` so code, docs, and vignettes can be reviewed together
 - For CRAN-facing packages, be conservative about examples, timings, and external services
 
 ## Troubleshooting

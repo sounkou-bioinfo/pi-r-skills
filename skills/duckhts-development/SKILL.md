@@ -233,6 +233,7 @@ When mirroring external tool behavior:
 - use upstream source as the primary semantic oracle
 - use design docs to record compatibility targets and phased implementation
 - if `.sync/` is missing locally, do not invent behavior from memory; note the absence and re-establish the pinned source before making compatibility claims
+- for R package references, another useful pattern is generating a single `llm.txt`-style dump with `rdocdump`, so source, documentation, and vignettes can be reviewed together when a full git mirror is unnecessary
 
 ## Wasm / webR / browser rules
 
