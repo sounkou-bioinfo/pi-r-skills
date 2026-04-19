@@ -114,6 +114,21 @@ This is useful when you want an `llm.txt`-style snapshot of an R package for rev
 - Add new bullets at the top
 - Prefer user-facing wording over internal implementation detail
 
+## CRAN-facing checklist themes
+
+Before submission, quickly sanity-check:
+
+- `Description` is informative and not too thin
+- `Title` is in title case
+- software/package names are quoted appropriately in DESCRIPTION text
+- examples use the right wrappers (`\\donttest{}`, `if (interactive())`, `try()`, etc.)
+- return values are documented via `@return` / `\\value{}`
+- examples, tests, and vignettes do not leave temp-file detritus
+- code does not write outside `tempdir()` during checks
+- code restores `options()`, `par()`, and working directory changes
+- tests/examples do not use more than 2 cores
+- reviewer context is captured in `cran-comments.md` when needed
+
 ## CI-friendly sequence
 
 ```bash

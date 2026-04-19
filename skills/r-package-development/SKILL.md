@@ -34,6 +34,7 @@ When using this skill:
 5. Never manually edit roxygen2-generated artifacts or roxygen tags as a substitute for fixing the underlying R source documentation block.
 6. Use package-oriented commands from the package root.
 7. Make the smallest safe change and run the most relevant checks afterward.
+8. For CRAN-facing work, anticipate common review issues in examples, DESCRIPTION text, side effects, temp files, and overall check behavior rather than waiting for CRAN to report them.
 
 ## First checks
 
@@ -158,6 +159,16 @@ Rscript -e 'testthat::test_file("tests/testthat/test-my-function.R")'
 
 Use the lightest check that matches the task, then escalate. If a `Makefile` exists, prefer its targets first.
 
+For CRAN-facing packages, also think ahead about common review triggers:
+
+- examples wrapped too aggressively or incorrectly
+- missing return-value documentation
+- long overall check time
+- temp-file detritus
+- writing outside `tempdir()` during examples/tests
+- unsuppressible console output
+- use of more than 2 cores during checks
+
 Typical Makefile-oriented flow:
 
 ```bash
@@ -207,6 +218,13 @@ Rscript -e 'devtools::check_rhub()'
 Rscript -e 'devtools::release()'
 ```
 
+Also prepare reviewer-facing notes when relevant:
+
+- why package size is acceptable
+- why particular examples use `\\donttest{}` or `if (interactive())`
+- any external software, network, or platform caveats
+- anything unusual a CRAN reviewer would otherwise have to infer
+
 ## File-specific guidance
 
 ### DESCRIPTION
@@ -222,6 +240,16 @@ Maintain:
 - `Encoding: UTF-8`
 - `Roxygen` / `RoxygenNote` when roxygen2 is used
 - dependency fields (`Imports`, `Suggests`, etc.)
+
+CRAN-facing DESCRIPTION guidance:
+
+- Keep `Description` to a short informative paragraph, typically at least two sentences
+- Put software/package/API names in single quotes where appropriate
+- Explain non-obvious acronyms
+- Keep `Title` in title case
+- Prefer `Authors@R` as the source of truth rather than hand-maintained `Author`/`Maintainer`
+- Use auto-linkable references like `Author (year) <doi:...>` or `<https:...>` with no stray spaces
+- Only use `+ file LICENSE` when the selected license genuinely needs an extra file
 
 Citation practice in `Authors@R`:
 
@@ -254,6 +282,7 @@ Citation practice in `Authors@R`:
 - Use behavior-focused tests
 - Prefer small, isolated expectations
 - Add regression tests for bug fixes
+- For CRAN-facing checks, keep tests deterministic, avoid unnecessary temp-file leftovers, and avoid using more than 2 cores
 
 ### tests/testthat/
 
@@ -308,6 +337,8 @@ Citation practice in `Authors@R`:
 
 - Use for workflows and package narratives
 - Keep code examples reproducible and dependency-aware
+- Keep runtime modest for CRAN-facing packages
+- Avoid writing outside `tempdir()` and clean up temporary artifacts when applicable
 
 ## Related skills
 
@@ -316,6 +347,7 @@ Citation practice in `Authors@R`:
 ## Best practices
 
 - Prefer the repository's existing automation, especially `make` targets when present
+- For CRAN-facing packages, proactively check common cookbook-style issues in DESCRIPTION text, examples, output behavior, temp files, side effects, and CPU usage before submission
 - Prefer `Rscript -e` or `R -e` commands for non-interactive automation
 - Keep generated artifacts synchronized after source changes
 - Use `usethis` for skeleton setup, `.gitignore`, and `.Rbuildignore` maintenance when appropriate
@@ -330,6 +362,9 @@ Citation practice in `Authors@R`:
 - When studying external code or package behavior, prefer a checked-out reference under `.sync/` when the project uses that convention
 - For R package references, consider generating a single `llm.txt`-style source/doc dump with `rdocdump` so code, docs, and vignettes can be reviewed together
 - For CRAN-facing packages, be conservative about examples, timings, and external services
+- Prefer `requireNamespace()` over `installed.packages()` for availability checks
+- Avoid hard-coded seeds inside user-facing functions; expose seed control instead when needed
+- Prefer suppressible output or explicit `verbose` controls over unconditional `print()`/`cat()`
 
 ## Troubleshooting
 
@@ -360,10 +395,13 @@ make rd
 R -e 'roxygen2::roxygenize(load_code = "source")'
 ```
 
+If CRAN reports repeated manual issues and the package uses roxygen2, fix the source `R/*.R` documentation blocks and regenerate; do not patch `.Rd` files directly.
+
 ## References
 
 - [Workflow reference](references/workflow-reference.md)
 - [Formatting and linting](references/formatting-and-linting.md)
+- [CRAN cookbook notes](references/cran-cookbook-notes.md)
 - [Release checklist](references/release-checklist.md)
 - [Vendoring strategy](references/vendoring-strategy.md)
 - [Related S7 skill](../s7-development/SKILL.md)

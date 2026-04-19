@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.0
+
+- add CRAN Cookbook-informed guidance to `r-package-development`
+- add a CRAN cookbook reference covering DESCRIPTION hygiene, examples, return-value docs, side effects, temp-file cleanup, and CPU/check-time considerations
+- expand the workflow reference with CRAN-facing checklist themes for common review issues
+
 ## v0.3.1
 
 - add `air` installation commands to the R package formatting/linting reference
