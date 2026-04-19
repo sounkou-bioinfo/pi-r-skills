@@ -264,6 +264,9 @@ Citation practice in `Authors@R`:
 - Document how compiler flags, debug flags, and link mode are selected
 - For runtime library lookup, prefer explicit platform-aware strategies such as rpath on Unix-alikes and colocated DLLs on Windows
 - When Windows and Unix use different include or linker strategies, preserve the reason in comments
+- When native code needs platform-specific behavior, prefer a dedicated platform layer that implements platform adaptations of the public or internal API behind a stable interface
+- Keep `#ifdef`, platform macros, and OS-specific branching confined to a small number of platform files instead of scattering them across the whole codebase
+- Let higher-level package code call platform wrappers or adapter functions rather than embedding platform conditionals everywhere
 
 ### NEWS.md
 
@@ -271,6 +274,14 @@ Citation practice in `Authors@R`:
 - Add entries at the top under the unreleased or current development version
 - Use concise, user-facing bullets
 - Group related fixes or features together
+
+### src/ platform layer
+
+- When necessary, create a platform layer for native code, e.g. files such as `platform.h`, `platform.c`, `platform_unix.c`, `platform_windows.c`, or similarly named adapters
+- Define platform-level adaptations of public or internal API functions there
+- Keep headers shared and stable, with platform differences implemented behind the interface
+- Prefer moving OS-specific includes, constants, shims, and macro-heavy logic into those files
+- This helps restrict `#ifdef` and macro usage to specific files and keeps the rest of the code easier to read, test, and review
 
 ### vignettes/
 

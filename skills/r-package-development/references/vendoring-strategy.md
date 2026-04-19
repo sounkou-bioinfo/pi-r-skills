@@ -208,6 +208,9 @@ Concrete practices illustrated by `Rtinycc`-style workflows:
 - On Unix-alikes, use platform-aware rpath settings when shipping companion shared libraries
 - On Windows, prefer DLL colocating or explicit import-library handling instead of Unix-style rpath
 - Comment why a given include path is intentionally excluded, especially when vendored headers would shadow the R toolchain headers
+- When platform-specific adaptations are needed, define them in a small platform layer instead of spreading `#ifdef` blocks throughout unrelated files
+- Prefer a stable internal API such as `platform_*` wrappers that isolate OS-specific behavior behind one header and a few implementation files
+- Keep macro-heavy compatibility code localized to those files whenever possible
 
 ## What to document
 
