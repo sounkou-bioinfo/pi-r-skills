@@ -12,6 +12,18 @@ pi install git:github.com/sounkou-bioinfo/pi-r-skills
 
 - `r-package-development`
 - `s7-development`
+- `duckhts-development`
+
+## When to use `duckhts-development`
+
+Load `duckhts-development` when you are:
+
+- working in `RGenomicsETL/duckhts`
+- changing DuckDB extension code under `src/`
+- changing the bundled R package under `r/Rduckhts/`
+- adding public functions that require `functions.yaml`, SQL tests, and tinytests
+- touching wasm/webR build logic
+- porting existing genomics tools into DuckHTS with exact-compatibility goals
 
 ## When to use `s7-development`
 
