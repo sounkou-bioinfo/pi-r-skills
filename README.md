@@ -5,7 +5,7 @@ Pi skills for R package development.
 ## Install
 
 ```bash
-pi install git:github.com/sounkou-bionfo/pi-r-skills
+pi install git:github.com/sounkou-bioinfo/pi-r-skills
 ```
 
 ## Included skills
