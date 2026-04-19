@@ -8,6 +8,12 @@ Pi skills for R package development.
 pi install git:github.com/sounkou-bioinfo/pi-r-skills
 ```
 
+Pin a specific release:
+
+```bash
+pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.2.0
+```
+
 ## Included skills
 
 - `r-package-development`
@@ -57,6 +63,26 @@ Load `s7-development` when you are:
 - integrating S7 into an R package
 - dealing with S3/S4 compatibility or migration toward S7
 - debugging package issues around method registration, collation order, or S7 documentation
+
+## Update
+
+If you installed the unpinned git package, update with:
+
+```bash
+pi update
+```
+
+Or update just this package explicitly:
+
+```bash
+pi update git:github.com/sounkou-bioinfo/pi-r-skills
+```
+
+If you installed a pinned tag, move to the new release explicitly:
+
+```bash
+pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.2.0
+```
 
 ## Development
 
