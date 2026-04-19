@@ -13,6 +13,8 @@ pi install git:github.com/sounkou-bioinfo/pi-r-skills
 - `r-package-development`
 - `s7-development`
 - `duckhts-development`
+- `duckhts-rewrite-porting`
+- `duckhts-wasm-debugging`
 
 ## When to use `duckhts-development`
 
@@ -24,6 +26,26 @@ Load `duckhts-development` when you are:
 - adding public functions that require `functions.yaml`, SQL tests, and tinytests
 - touching wasm/webR build logic
 - porting existing genomics tools into DuckHTS with exact-compatibility goals
+
+## When to use `duckhts-rewrite-porting`
+
+Load `duckhts-rewrite-porting` when you are:
+
+- porting an existing genomics tool into DuckHTS
+- targeting exact compatibility with a pinned upstream version
+- validating against upstream outputs or behavior
+- working on mosdepth-, bcftools-, or WisecondorX-aligned logic
+- documenting attribution, validation scope, and citation requirements
+
+## When to use `duckhts-wasm-debugging`
+
+Load `duckhts-wasm-debugging` when you are:
+
+- debugging DuckHTS in webR
+- debugging DuckHTS in duckdb-wasm
+- checking wasm symbol exports or loader ABI issues
+- working on `wasm_http_hfile.c` or Emscripten-specific build logic
+- investigating browser runtime vs package-artifact mismatches
 
 ## When to use `s7-development`
 
