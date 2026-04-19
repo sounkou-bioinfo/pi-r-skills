@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.1
+
+- add `air` installation commands to the R package formatting/linting reference
+- add `jarl` installation commands to the R package formatting/linting reference
+
 ## v0.3.0
 
 - expand `r-package-development` with optional `air` formatting guidance

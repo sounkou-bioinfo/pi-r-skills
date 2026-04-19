@@ -6,6 +6,16 @@
 
 Use `air` for code formatting.
 
+Install `air` with one of:
+
+```bash
+curl -LsSf https://github.com/posit-dev/air/releases/latest/download/air-installer.sh | sh
+# or
+brew install air
+# or
+uv tool install air-formatter
+```
+
 Typical command:
 
 ```bash
@@ -21,6 +31,14 @@ Use it when:
 ## jarl
 
 Use `jarl` for static linting.
+
+Install `jarl` with one of:
+
+```bash
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/etiennebacher/jarl/releases/latest/download/jarl-installer.sh | sh
+# or
+cargo install --git https://github.com/etiennebacher/jarl jarl --profile=release
+```
 
 Typical commands:
 
