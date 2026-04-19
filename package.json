@@ -1,0 +1,10 @@
+{
+  "name": "pi-r-skills",
+  "version": "0.1.0",
+  "private": false,
+  "keywords": ["pi-package"],
+  "license": "MIT",
+  "pi": {
+    "skills": ["./skills"]
+  }
+}
