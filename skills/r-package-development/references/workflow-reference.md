@@ -61,6 +61,7 @@ DESCRIPTION
 NAMESPACE
 Makefile
 R/
+  aaa.R
 man/
 inst/tinytest/
 tests/tinytest.R
@@ -68,6 +69,18 @@ vignettes/
 README.Rmd
 _pkgdown.yml
 ```
+
+## Package-level roxygen in `aaa.R`
+
+A common pattern is to keep package-level namespace roxygen in `R/aaa.R`, for example:
+
+```r
+#' @useDynLib pkgname, .registration = TRUE
+#' @importFrom somepkg some_fun
+NULL
+```
+
+Use this file for dynload-related roxygen tags and package-level imports, then regenerate `NAMESPACE`. 
 
 ## NEWS.md guidance
 

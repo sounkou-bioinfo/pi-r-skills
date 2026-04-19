@@ -232,6 +232,9 @@ Citation practice in `Authors@R`:
 - Keep one or a few related functions per file
 - Prefer clear function names and explicit imports
 - Add roxygen comments directly above exported functions
+- Use `R/aaa.R` for package-level roxygen when needed
+- `aaa.R` should include the roxygen2 tags required for dynamic library loading and namespace imports, e.g. `@useDynLib pkgname, .registration = TRUE` and package-level `@importFrom` tags when appropriate
+- Regenerate `NAMESPACE` after changing package-level roxygen tags
 
 ### inst/tinytest/ or tests/
 
