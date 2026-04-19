@@ -11,6 +11,7 @@ pi install git:github.com/sounkou-bioinfo/pi-r-skills
 ## Included skills
 
 - `r-package-development`
+- `s7-development`
 
 ## Development
 

@@ -298,6 +298,10 @@ Citation practice in `Authors@R`:
 - Use for workflows and package narratives
 - Keep code examples reproducible and dependency-aware
 
+## Related skills
+
+- If the package uses S7 classes, generics, methods, or package integration patterns, also load [the S7 development skill](../s7-development/SKILL.md).
+
 ## Best practices
 
 - Prefer the repository's existing automation, especially `make` targets when present
@@ -346,3 +350,4 @@ R -e 'roxygen2::roxygenize(load_code = "source")'
 - [Workflow reference](references/workflow-reference.md)
 - [Release checklist](references/release-checklist.md)
 - [Vendoring strategy](references/vendoring-strategy.md)
+- [Related S7 skill](../s7-development/SKILL.md)
