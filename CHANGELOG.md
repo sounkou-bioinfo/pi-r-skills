@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.1
+
+- add a focused CRAN submission triage reference for common reviewer messages and likely fixes
+
 ## v0.4.0
 
 - add CRAN Cookbook-informed guidance to `r-package-development`

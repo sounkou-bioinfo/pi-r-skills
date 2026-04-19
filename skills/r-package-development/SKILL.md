@@ -402,6 +402,7 @@ If CRAN reports repeated manual issues and the package uses roxygen2, fix the so
 - [Workflow reference](references/workflow-reference.md)
 - [Formatting and linting](references/formatting-and-linting.md)
 - [CRAN cookbook notes](references/cran-cookbook-notes.md)
+- [CRAN submission triage](references/cran-submission-triage.md)
 - [Release checklist](references/release-checklist.md)
 - [Vendoring strategy](references/vendoring-strategy.md)
 - [Related S7 skill](../s7-development/SKILL.md)
