@@ -86,4 +86,6 @@ pi install git:github.com/sounkou-bioinfo/pi-r-skills@v0.2.0
 
 ## Development
 
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
 This repo is a Pi package. Pi auto-loads skills from `skills/`, and `package.json` declares the package explicitly under the `pi` key.
